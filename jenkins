@@ -15,6 +15,7 @@ pipeline {
             steps {
                 echo 'Hello World from maven'
                 sh 'mvn clean test'
+                sh 'mvn clean package'
             }
         }
     }
