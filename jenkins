@@ -1,0 +1,21 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Hello') {
+            agent {label 'jenkins-master'}
+            steps {
+                echo 'Hello World'
+                sh 'hostname'
+            }
+        }
+        
+        stage('maven') {
+            agent {label 'maven-master'}
+            steps {
+                echo 'Hello World from maven'
+                sh 'mvn clean test'
+            }
+        }
+    }
+}
